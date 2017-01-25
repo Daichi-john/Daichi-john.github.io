@@ -12,8 +12,8 @@
   <button type="button" onclick="connect();">Connect</button>
   <button type="button" onclick="hangUp();">Hang Up</button> 
   <div>
-    <Voice id="local_Voice" autoplay style="width: 160px; height: 120px; border: 1px solid black;"></Voice>
-    <Voice id="remote_Voice" autoplay style="width: 160px; height: 120px; border: 1px solid black;"></Voice>
+    <voice id="local_voice" autoplay style="width: 160px; height: 120px; border: 1px solid black;"></voice>
+    <voice id="remote_voice" autoplay style="width: 160px; height: 120px; border: 1px solid black;"></voice>
   </div>
   <p>SDP to send:<br />
     <textarea id="text_for_send_sdp" rows="5" cols="60" readonly="readonly">SDP to send</textarea>
@@ -24,8 +24,8 @@
   </p>
 </body>
 <script type="text/javascript">
-  let localVoice = document.getElementById('local_Voice');
-  let remoteVoice = document.getElementById('remote_Voice');
+  let localVoice = document.getElementById('local_voice');
+  let remoteVoice = document.getElementById('remote_voice');
   let localStream = null;
   let peerConnection = null;
   let textForSendSdp = document.getElementById('text_for_send_sdp');
@@ -38,9 +38,9 @@
   RTCSessionDescription = window.RTCSessionDescription || window.webkitRTCSessionDescription || window.mozRTCSessionDescription;
 
   // ---------------------- media handling ----------------------- 
-  // start local Voice
+  // start local voice
   function startVoice() {
-    getDeviceStream({Voice: true, audio: false})
+    getDeviceStream({voice: true, audio: false})
     .then(function (stream) { // success
       localStream = stream;
       playVoice(localVoice, stream);
@@ -50,7 +50,7 @@
     });
   }
 
-  // stop local Voice
+  // stop local voice
   function stopVoice() {
     pauseVoice(localVoice);
     stopLocalStream(localStream);
