@@ -5,16 +5,13 @@
  <title>Hand Signaling</title>
 </head>
 <body>
-  Hand Signaling 2016<br />
+ マルチメディアコミュニケーション論　WebRTCでIP電話ソフトを作成してみた<br />
   <button type="button" onclick="startVideo();">Start Video</button>
   <button type="button" onclick="stopVideo();">Stop Video</button>
   &nbsp;
   <button type="button" onclick="connect();">Connect</button>
   <button type="button" onclick="hangUp();">Hang Up</button> 
-  <div>
-    <video id="local_video" autoplay style="width: 160px; height: 120px; border: 1px solid black;"></video>
-    <video id="remote_video" autoplay style="width: 160px; height: 120px; border: 1px solid black;"></video>
-  </div>
+
   <p>SDP to send:<br />
     <textarea id="text_for_send_sdp" rows="5" cols="60" readonly="readonly">SDP to send</textarea>
   </p>
@@ -24,8 +21,6 @@
   </p>
 </body>
 <script type="text/javascript">
-  let localVideo = document.getElementById('local_video');
-  let remoteVideo = document.getElementById('remote_video');
   let localStream = null;
   let peerConnection = null;
   let textForSendSdp = document.getElementById('text_for_send_sdp');
@@ -40,7 +35,7 @@
   // ---------------------- media handling ----------------------- 
   // start local video
   function startVideo() {
-    getDeviceStream({video: true, audio: true})
+    getDeviceStream({video: false, audio: true})
     .then(function (stream) { // success
       localStream = stream;
       playVideo(localVideo, stream);
