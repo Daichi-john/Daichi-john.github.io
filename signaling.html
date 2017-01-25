@@ -34,7 +34,7 @@
 
   // ---------------------- media handling ----------------------- 
   // start local video
-  function startVideo() {
+  function startAudio() {
     getDeviceStream({video: false, audio: true})
     .then(function (stream) { // success
       localStream = stream;
