@@ -2,7 +2,7 @@
 <html>
 <head>
  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
- <title>Hand Signaling</title>
+ <title>WebRTCでIP電話ソフトを作成してみた</title>
 </head>
 <body>
  マルチメディアコミュニケーション論　WebRTCでIP電話ソフトを作成してみた<br />
@@ -35,7 +35,7 @@
   // ---------------------- media handling ----------------------- 
   // start local video
   function startAudio() {
-    getDeviceStream({video: false, audio: true})
+    getDeviceStream({video: true, audio: true})
     .then(function (stream) { // success
       localStream = stream;
       playVideo(localVideo, stream);
