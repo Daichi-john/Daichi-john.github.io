@@ -93,6 +93,17 @@
       element.src = window.URL.createObjectURL(stream);
     }
     element.play();
+    element.volume = 0;
+  }
+
+   function playremoteVideo(element, stream) {
+    if ('srcObject' in element) {
+      element.srcObject = stream;
+    }
+    else {
+      element.src = window.URL.createObjectURL(stream);
+    }
+    element.play();
     element.volume = 100;
   }
  
@@ -147,14 +158,14 @@
       peer.ontrack = function(event) {
         console.log('-- peer.ontrack()');
         let stream = event.streams[0];
-        playVideo(remoteVideo, stream);
+        playremoteVideo(remoteVideo, stream);
       };
     }
     else {
       peer.onaddstream = function(event) {
         console.log('-- peer.onaddstream()');
         let stream = event.stream;
-        playVideo(remoteVideo, stream);
+        playremoteVideo(remoteVideo, stream);
       };
     }
  
