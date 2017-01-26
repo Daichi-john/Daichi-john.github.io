@@ -3,10 +3,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Hand Signaling</title>
+<title>webRTCでIPソフトを作成してみた</title>
 </head>
 <body>
-  Hand Signaling 2016--2<br />
+  マルチメディアコミュニケーション論~webRTCでIPソフトを作成してみた~<br />
   <button type="button" onclick="startVideo();">Start Video</button>
   <button type="button" onclick="stopVideo();">Stop Video</button>
   &nbsp;
@@ -104,7 +104,7 @@
       element.src = window.URL.createObjectURL(stream);
     }
     element.play();
-    element.volume = 0;
+    element.volume = 100;
   }
  
   function pauseVideo(element) {
