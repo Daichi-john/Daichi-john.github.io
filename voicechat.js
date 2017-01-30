@@ -39,7 +39,7 @@ peer.on('call', function(call){
         var url = URL.createObjectURL(stream);
  
         // video要素のsrcに設定することで、映像を表示する
-//        $('#peer-video').prop('src', url);
+        $('#peer-video').prop('src', url);
     });
 });
  
